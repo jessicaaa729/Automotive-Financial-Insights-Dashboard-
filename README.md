@@ -10,10 +10,10 @@ It helps different types of investors understand profitability, risk, and growth
 ---
 
 ## 2. Data
-- **Source**: WRDS (Wharton Research Data Services)
-- **Access date**: 15 April 2026
-- **Key fields**: revenue growth, net income growth, ROA, ROE, net profit margin, debt ratio, R&D ratio, CAPEX ratio, year, company
-- **Dataset file**: final_financial_dataset.csv
+**Source**: WRDS (Wharton Research Data Services)
+**Access date**: 15 April 2026
+**Key fields**: revenue growth, net income growth, ROA, ROE, net profit margin, debt ratio, R&D ratio, CAPEX ratio, year, company
+**Dataset file**: final_financial_dataset.csv
 
 ---
 
@@ -29,10 +29,10 @@ It helps different types of investors understand profitability, risk, and growth
 ---
 
 ## 4. Key Findings
-- Toyota shows strong operational stability and consistent profitability, suitable for conservative investors.
-- BYD balances strong revenue growth with expanding market share, ideal for balanced investors.
-- Tesla leads in innovation and R&D intensity, offering high long-term growth potential for aggressive investors.
-- Each company has distinct strengths in stability, growth, or innovation.
+Toyota shows strong operational stability and consistent profitability, suitable for conservative investors.
+BYD balances strong revenue growth with expanding market share, ideal for balanced investors.
+Tesla leads in innovation and R&D intensity, offering high long-term growth potential for aggressive investors.
+Each company has distinct strengths in stability, growth, or innovation.
 
 ---
 
@@ -46,8 +46,8 @@ It helps different types of investors understand profitability, risk, and growth
 ---
 
 ## 6. Product link / Demo
-- GitHub Repository: https://github.com/jessicaaa729/acc102-financial-dashboard
-- Demo Video: [Your video link here]
+GitHub Repository: https://github.com/jessicaaa729/Automotive-Financial-Insights-Dashboard-
+Demo Video: [Your video link here]
 
 ---
 
