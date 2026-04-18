@@ -47,6 +47,7 @@ Each company has distinct strengths in stability, growth, or innovation.
 
 ## 6. Product link / Demo
  GitHub Repository: https://github.com/jessicaaa729/Automotive-Financial-Insights-Dashboard-  
+ Product link: https://automotive-financial-insights-dashboard.streamlit.app/  
  Demo Video: [Your video link here]  
 
 ---
