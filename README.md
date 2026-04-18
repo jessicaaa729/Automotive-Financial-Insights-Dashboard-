@@ -10,10 +10,10 @@ It helps different types of investors understand profitability, risk, and growth
 ---
 
 ## 2. Data
-**Source**: WRDS (Wharton Research Data Services)
-**Access date**: 15 April 2026
-**Key fields**: revenue growth, net income growth, ROA, ROE, net profit margin, debt ratio, R&D ratio, CAPEX ratio, year, company
-**Dataset file**: final_financial_dataset.csv
+ **Source**: WRDS (Wharton Research Data Services)
+ **Access date**: 15 April 2026
+ **Key fields**: revenue growth, net income growth, ROA, ROE, net profit margin, debt ratio, R&D ratio, CAPEX ratio, year, company
+ **Dataset file**: final_financial_dataset.csv
 
 ---
 
@@ -46,8 +46,8 @@ Each company has distinct strengths in stability, growth, or innovation.
 ---
 
 ## 6. Product link / Demo
-GitHub Repository: https://github.com/jessicaaa729/Automotive-Financial-Insights-Dashboard-
-Demo Video: [Your video link here]
+ GitHub Repository: https://github.com/jessicaaa729/Automotive-Financial-Insights-Dashboard-
+ Demo Video: [Your video link here]
 
 ---
 
