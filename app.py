@@ -869,20 +869,84 @@ with tab3:
     most_stable_company = company_std.index[0]
     most_stable_value = company_std.iloc[0]
 
+    latest_leader = latest_company_avg.index[0]
     latest_leader_value = latest_company_avg.iloc[0]
 
-    avg_direction_text = "highest" if higher_is_better else "lowest"
-    latest_direction_text = "highest" if higher_is_better else "lowest"
+    # More natural sentence structures depending on metric direction
+    if higher_is_better:
+        avg_sentence = (
+            f"<strong>{top_avg_company}</strong> reports the <strong>highest average</strong> "
+            f"<strong>{selected_label}</strong> during the selected period, at "
+            f"<strong>{top_avg_value:.2f}</strong>."
+        )
+        latest_sentence = (
+            f"In <strong>{latest_year}</strong>, <strong>{latest_leader}</strong> records the "
+            f"<strong>highest</strong> value in the group, at around "
+            f"<strong>{latest_leader_value:.2f}</strong>."
+        )
+    else:
+        avg_sentence = (
+            f"<strong>{top_avg_company}</strong> shows the <strong>lowest average level of</strong> "
+            f"<strong>{selected_label}</strong> during the selected period, at "
+            f"<strong>{top_avg_value:.2f}</strong>."
+        )
+        latest_sentence = (
+            f"In <strong>{latest_year}</strong>, <strong>{latest_leader}</strong> records the "
+            f"<strong>lowest</strong> value in the group, at around "
+            f"<strong>{latest_leader_value:.2f}</strong>."
+        )
 
-    st.markdown(f"""
+    # Metric-specific interpretations with short possible explanations
+    if selected_label in ["Revenue Growth", "Revenue CAGR", "Sales Growth"]:
+        interpretation_1 = "This may reflect stronger market demand and faster business expansion."
+        interpretation_2 = "This may indicate a more consistent growth pattern than that of its peers."
+        interpretation_3 = "This suggests that the company currently maintains strong growth momentum."
+
+    elif selected_label in ["ROE", "ROA", "Net Profit Margin", "Operating Margin", "Gross Margin"]:
+        interpretation_1 = "This may reflect better cost control and stronger operating efficiency."
+        interpretation_2 = "This may indicate a relatively stable ability to maintain profitability over time."
+        interpretation_3 = "This suggests a strong recent profitability position within the group."
+
+    elif selected_label in ["Debt Ratio", "Debt to Equity", "Leverage Ratio", "Liability Ratio"]:
+        if higher_is_better:
+            interpretation_1 = "This may reflect a more expansionary financing strategy or greater use of leverage."
+            interpretation_2 = "This may indicate that the company has maintained a relatively stable capital structure over time."
+            interpretation_3 = "This highlights its latest leverage position compared with other firms."
+        else:
+            interpretation_1 = "This may reflect a more conservative financing strategy and lower financial risk."
+            interpretation_2 = "This may indicate that the company has kept its debt position relatively stable over time."
+            interpretation_3 = "This highlights a relatively low recent leverage level within the group."
+
+    elif selected_label in ["R&D Ratio", "R&D Intensity", "R&D to Revenue"]:
+        interpretation_1 = "This may reflect a stronger focus on innovation and long-term development."
+        interpretation_2 = "This may indicate relatively consistent investment in research and development."
+        interpretation_3 = "This suggests an active recent commitment to technology and product development."
+
+    else:
+        interpretation_1 = "This may reflect relatively stronger overall performance compared with peers."
+        interpretation_2 = "This may indicate a more stable performance pattern over time."
+        interpretation_3 = "This suggests a strong recent position in this metric."
+
+    insight_html = f"""
     <div class="insight-card">
-        <b>Key findings for {selected_label}:</b><br><br>
-        • <b>{top_avg_company}</b> shows the <b>{avg_direction_text}</b> average <b>{selected_label}</b> across the selected period, with an average value of <b>{top_avg_value:.2f}</b>.<br>
-        • <b>{most_stable_company}</b> appears to be the most stable company, with the lowest variation in this metric (standard deviation = <b>{most_stable_value:.2f}</b>).<br>
-        • In the most recent selected year (<b>{latest_year}</b>), <b>{latest_leader}</b> leads the group with the <b>{latest_direction_text}</b> value of approximately <b>{latest_leader_value:.2f}</b>.<br>
+        <h3 style="margin-top:0; color:#33415c;">Key findings for {selected_label}</h3>
+        <ul style="padding-left: 20px; margin-bottom: 0; color:#33415c;">
+            <li style="margin-bottom: 12px;">
+                {avg_sentence} {interpretation_1}
+            </li>
+            <li style="margin-bottom: 12px;">
+                <strong>{most_stable_company}</strong> is the most stable company in this metric,
+                with the lowest standard deviation of <strong>{most_stable_value:.2f}</strong>.
+                {interpretation_2}
+            </li>
+            <li>
+                {latest_sentence} {interpretation_3}
+            </li>
+        </ul>
     </div>
-    """, unsafe_allow_html=True)
+    """
 
+    st.markdown(insight_html, unsafe_allow_html=True)
 # -----------------------
 # Investment Suggestions
 # -----------------------
